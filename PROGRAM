@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function to simulate fetching weather data
+void fetchWeather(string city) {
+    cout << "\nFetching weather data for " << city << "...\n";
+
+    // Dummy data (simulation)
+    if (city == "Hyderabad") {
+        cout << "Temperature: 30°C\n";
+        cout << "Humidity: 65%\n";
+        cout << "Condition: Cloudy\n";
+        cout << "Wind Speed: 12 km/h\n";
+    }
+    else if (city == "Delhi") {
+        cout << "Temperature: 35°C\n";
+        cout << "Humidity: 50%\n";
+        cout << "Condition: Sunny\n";
+        cout << "Wind Speed: 10 km/h\n";
+    }
+    else if (city == "Mumbai") {
+        cout << "Temperature: 28°C\n";
+        cout << "Humidity: 80%\n";
+        cout << "Condition: Rainy\n";
+        cout << "Wind Speed: 15 km/h\n";
+    }
+    else {
+        cout << "Error: City not found in database.\n";
+    }
+}
+
+int main() {
+    string city;
+    char choice;
+
+    cout << "===== Weather Dashboard App =====\n";
+
+    do {
+        // Step: Enter City Name
+        cout << "\nEnter City Name: ";
+        cin >> city;
+
+        // Step: Validate Input
+        if (city.empty()) {
+            cout << "Error: City name cannot be empty.\n";
+            continue;
+        }
+
+        // Step: Fetch & Display Data
+        fetchWeather(city);
+
+        // Step: Search Again
+        cout << "\nDo you want to search again? (y/n): ";
+        cin >> choice;
+
+    } while (choice == 'y' || choice == 'Y');
+
+    cout << "\nThank you for using Weather Dashboard!\n";
+    return 0;
+}
